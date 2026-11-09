@@ -1,0 +1,33 @@
+
+services:
+  itops:
+    image: hermes-itops:dev
+
+    mem_limit: 3g
+    cpus: 2.0
+    pids_limit: 256
+
+    security_opt:
+      - no-new-privileges:true
+
+    cap_drop:
+      - ALL
+
+    cap_add:
+      - SETUID
+      - SETGID
+      - CHOWN
+      - FOWNER
+      - DAC_OVERRIDE
+
+    volumes:
+      - hermes-itops-data:/opt/data
+      - ./:/workspace/itops:ro
+
+    stdin_open: true
+    tty: true
+
+volumes:
+  hermes-itops-data:
+    external: true
+    name: hermes-itops-data

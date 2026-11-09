@@ -1,0 +1,63 @@
+[
+  {
+    "id": "KB-001",
+    "title": "Suspicious sign-in handling",
+    "tags": [
+      "sign-in",
+      "security",
+      "alert",
+      "login"
+    ],
+    "steps": [
+      "Verify the report through an approved channel.",
+      "Review relevant identity sign-in logs.",
+      "Escalate to the security team when appropriate.",
+      "Do not reset credentials or revoke sessions without approval."
+    ]
+  },
+  {
+    "id": "KB-002",
+    "title": "VPN connection troubleshooting",
+    "tags": [
+      "vpn",
+      "network",
+      "remote"
+    ],
+    "steps": [
+      "Confirm internet access.",
+      "Verify correct VPN client and endpoint.",
+      "Check documented account status and error message.",
+      "Escalate before changing access policies."
+    ]
+  },
+  {
+    "id": "KB-003",
+    "title": "Slow laptop first checks",
+    "tags": [
+      "laptop",
+      "slow",
+      "hardware",
+      "performance"
+    ],
+    "steps": [
+      "Record device symptoms and affected applications.",
+      "Check available disk space and resource usage.",
+      "Confirm maintenance windows before restarting or installing software."
+    ]
+  },
+  {
+    "id": "KB-004",
+    "title": "Password reset request process",
+    "tags": [
+      "password",
+      "reset",
+      "account",
+      "access"
+    ],
+    "steps": [
+      "Verify requester identity using the approved procedure.",
+      "Never request or expose an existing password.",
+      "Route the reset to an authorised technician or self-service process."
+    ]
+  }
+]

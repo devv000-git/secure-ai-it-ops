@@ -1,0 +1,30 @@
+[
+  {
+    "id": "INC-1001",
+    "title": "Suspicious sign-in notification",
+    "description": "A user reports an unexpected sign-in alert from an unfamiliar location. No account changes have been made.",
+    "source": "fictional help desk",
+    "status": "New"
+  },
+  {
+    "id": "INC-1002",
+    "title": "VPN connection failing",
+    "description": "Employee cannot connect to the demo VPN from home after a password change.",
+    "source": "fictional help desk",
+    "status": "New"
+  },
+  {
+    "id": "INC-1003",
+    "title": "Laptop running slowly",
+    "description": "A test laptop freezes while opening basic office applications.",
+    "source": "fictional help desk",
+    "status": "New"
+  },
+  {
+    "id": "INC-1004",
+    "title": "Request for password reset",
+    "description": "Employee is locked out of the demo portal and requests a password reset.",
+    "source": "fictional help desk",
+    "status": "New"
+  }
+]

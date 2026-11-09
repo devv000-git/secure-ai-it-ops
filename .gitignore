@@ -1,0 +1,31 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+*.key
+*.pem
+*.log
+.hermes/
+.hermes-data/
+secrets/
+
+# Local evaluation results
+evaluations/results/
+!evaluations/results/.gitkeep
+
+# Local configuration and credentials
+auth.json
+config.yaml
+config.*.yaml
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+
+# Local temporary files
+*.tmp
+*.bak
+*.swp

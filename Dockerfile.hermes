@@ -1,0 +1,8 @@
+FROM nousresearch/hermes-agent:latest
+
+USER root
+
+# Install MCP 1.x separately from Hermes MCP 2.x
+RUN python3 -m venv /opt/itops-venv \
+    && /opt/itops-venv/bin/python -m pip install \
+       --no-cache-dir "mcp>=1,<2"

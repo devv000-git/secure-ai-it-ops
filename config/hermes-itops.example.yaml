@@ -1,0 +1,46 @@
+# Secure AI Agent for IT Operations
+#
+# Example configuration fragment for Hermes Agent.
+#
+# Merge these settings into the existing Hermes config.yaml.
+# Do not overwrite an existing authenticated configuration.
+#
+# Authentication and model selection are managed separately.
+# Do not store credentials in this file.
+
+mcp_servers:
+  itops:
+    command: /opt/itops-venv/bin/python
+    args:
+      - /workspace/itops/src/mcp_server.py
+    enabled: true
+
+    tools:
+      include:
+        - list_it_tickets
+        - read_it_ticket
+        - search_it_knowledge
+        - assess_ticket_priority
+        - read_adversarial_ticket
+
+    resources: false
+    prompts: false
+
+agent:
+  disabled_toolsets:
+    - terminal
+    - file
+    - code_execution
+    - browser
+    - web
+    - computer_use
+    - skills
+    - delegation
+    - cronjob
+    - connections
+    - vision
+    - image_gen
+    - tts
+    - todo
+    - memory
+    - session_search
