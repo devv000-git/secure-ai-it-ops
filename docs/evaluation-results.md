@@ -55,6 +55,47 @@ The project also passed 14 tests covering:
 - Exception logging
 - Exclusion of full sensitive tool-response content from audit records
 
+## Verified MCP Audit Results
+
+The persistent audit log was inspected on 17 November 2026 following
+local Hermes incident investigations.
+
+### Recorded tool activity
+
+| MCP tool | Recorded events |
+|---|---:|
+| `search_it_knowledge` | 35 |
+| `assess_ticket_priority` | 19 |
+| `read_it_ticket` | 16 |
+| `read_adversarial_ticket` | 2 |
+| `list_it_tickets` | 2 |
+| **Total** | **74** |
+
+### Operation outcomes
+
+| Status | Events |
+|---|---:|
+| Success | 72 |
+| Not found | 2 |
+| **Total** | **74** |
+
+All 74 recorded events contained `read_only: true`.
+
+The JSONL audit file was stored at
+`/opt/data/itops-audit/tool_calls.jsonl` in the persistent Docker volume.
+File permissions were observed as `0600`, owned by `hermes`.
+
+These are cumulative tool-level records, not a count of individual
+investigations. The two `not_found` outcomes are consistent with
+priority assessment attempts involving an adversarial ticket that
+does not exist in the normal ticket registry.
+
+The read-only flag is application-generated metadata. It is not
+independent proof of complete runtime isolation.
+
+The raw audit log is not published because runtime records may contain
+operational metadata.
+
 ## Audit evidence
 
 Persistent JSONL records confirmed successful calls to the approved MCP tools during local investigations.
