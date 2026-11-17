@@ -250,6 +250,15 @@ Run only one Hermes instance against the persistent profile at a time.
 
 All classifications are provisional and require human verification.
 
+## Project demonstration evidence
+
+### Automated unit tests
+
+The project includes 14 automated tests covering ticket handling,
+incident severity classification and audit logging.
+
+![14 passing automated Python tests](assets/screenshots/automated-tests.png)
+
 ## Testing and evaluation
 
 ### Automated Python tests
