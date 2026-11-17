@@ -117,11 +117,11 @@ The custom Dockerfile extends the Hermes Agent image with a separate Python envi
 ### 1. Clone the repository
 
 ```bash
-git clone <YOUR-REPOSITORY-URL>
+git clone https://github.com/devv000-git/secure-ai-it-ops.git
 cd secure-ai-it-ops
 ```
 
-Replace the placeholder with the repository URL after publishing.
+This repository contains only project source code and public example configuration. Authentication credentials are not included.
 
 ### 2. Run the Python tests
 
@@ -149,22 +149,75 @@ Do not commit volume contents or authentication credentials to Git.
 
 ### 5. Configure Hermes and the MCP server
 
-Configure a supported model provider using Hermes' model selection workflow.
+The repository includes a public configuration example:
 
-The tested setup used OpenAI Codex with `gpt-6-sol`, but model availability and authentication requirements may change.
+`config/hermes-itops.example.yaml`
 
-The Hermes configuration must register the `itops` MCP server with:
+It defines the custom MCP server, the five approved tools and the restricted Hermes toolsets.
 
-- Command: `/opt/itops-venv/bin/python`
-- Arguments: `/workspace/itops/src/mcp_server.py`
-- Enabled: `true`
-- Allowed tools: the five MCP tools listed above
+**This file is a configuration fragment, not a complete Hermes configuration.**
 
-Resources and prompts are disabled for this custom MCP server.
+#### A. Configure model authentication
 
-Unnecessary built-in Hermes toolsets must also be disabled according to the security configuration described in `docs/security.md`.
+Configure Hermes with a supported AI model provider using the authentication workflow supplied by your installed Hermes version.
 
-The repository does not include private Hermes authentication or runtime configuration. A fresh installation needs this configuration before running the agent.
+The tested laboratory used OpenAI Codex with `gpt-6-sol`. Model availability and authentication requirements may change.
+
+Authentication information must remain in the private Hermes runtime environment.
+
+Never publish access tokens, authentication files, session data or complete private configuration files.
+
+#### B. Register the custom MCP server
+
+Review the public configuration example:
+
+```bash
+cat config/hermes-itops.example.yaml
+```
+
+Merge the relevant settings into the private Hermes configuration stored in the persistent Docker volume.
+
+The MCP server must use:
+
+| Setting | Value |
+|---|---|
+| Server name | `itops` |
+| Command | `/opt/itops-venv/bin/python` |
+| Argument | `/workspace/itops/src/mcp_server.py` |
+| Enabled | `true` |
+| Allowed tools | Five explicitly approved MCP operations |
+| MCP resources | Disabled |
+| MCP prompts | Disabled |
+
+The public example also lists 16 Hermes toolsets restricted in the tested laboratory configuration.
+
+**Do not replace an existing Hermes configuration wholesale.** Preserve provider settings and authentication, and verify that the example matches the installed Hermes version.
+
+#### C. Confirm configuration requirements
+
+Before launching the agent, verify that:
+
+1. Docker is running and the custom image has been built.
+2. The persistent Docker volume exists.
+3. Hermes authentication has been configured privately.
+4. The `itops` MCP server is enabled.
+5. Only the five intended MCP tools are allowlisted.
+6. The unnecessary Hermes toolsets are disabled.
+7. No other Hermes container is using the persistent profile.
+
+A fresh installation requires these preparation steps. The repository does not contain an automated, version-independent Hermes authentication or configuration installer.
+
+#### D. Protect local credentials
+
+Do not commit:
+
+- Hermes authentication or session files
+- Provider API keys or access tokens
+- Private `config.yaml` files
+- Docker volume contents
+- Unreviewed agent transcripts and audit logs
+
+The provided `.gitignore` excludes common local secrets and runtime files, but all staged changes should still be reviewed before publishing.
 
 ### 6. Validate Docker Compose
 
@@ -263,10 +316,13 @@ The container's startup process still runs as root. These settings provide reduc
 
 ```text
 secure-ai-it-ops/
+├── .gitignore
 ├── Dockerfile.hermes
 ├── compose.yaml
 ├── run-itops.sh
 ├── README.md
+├── config/
+│   └── hermes-itops.example.yaml
 ├── data/
 │   ├── tickets.json
 │   └── knowledge.json
@@ -286,7 +342,8 @@ secure-ai-it-ops/
 └── docs/
     ├── architecture.md
     ├── security.md
-    └── severity-policy.md
+    ├── severity-policy.md
+    └── evaluation-results.md
 ```
 
 ## Known limitations
