@@ -259,6 +259,14 @@ incident severity classification and audit logging.
 
 ![14 passing automated Python tests](assets/screenshots/automated-tests.png)
 
+### MCP audit logging evidence
+
+The custom MCP server records structured audit events for its
+approved tools. The recorded summary contains 74 events,
+including 72 successful operations and 74 marked read-only.
+
+![MCP audit logging evidence](assets/screenshots/mcp-audit-evidence.png)
+
 ## Testing and evaluation
 
 ### Automated Python tests
