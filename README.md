@@ -267,6 +267,20 @@ including 72 successful operations and 74 marked read-only.
 
 ![MCP audit logging evidence](assets/screenshots/mcp-audit-evidence.png)
 
+### AI-assisted security incident investigation
+
+Hermes investigated the fictional suspicious sign-in incident
+`INC-1001` using the approved MCP tools.
+
+The agent retrieved ticket evidence, applied the rule-based
+severity policy and consulted the approved knowledge base.
+
+The investigation retained a provisional Security / High
+classification, required human review and recommended
+read-only investigation steps.
+
+![AI security incident investigation](assets/screenshots/security-investigation.png)
+
 ## Testing and evaluation
 
 ### Automated Python tests
@@ -328,6 +342,27 @@ The tested Docker Compose configuration applies:
 - Read-only source mount
 
 The container's startup process still runs as root. These settings provide reduced privileges, not complete non-root isolation.
+
+## Runtime lifecycle management
+
+During local testing, Hermes completed investigations successfully
+but the Docker container remained active because its nested
+gateway supervisor did not terminate.
+
+Process inspection identified the gateway restart behaviour
+and the incomplete s6 supervision shutdown.
+
+The launcher now monitors the shutdown state, requests the
+gateway service to stop and terminates the nested supervision
+tree when required.
+
+This workaround was verified in two live investigations without
+adding Linux capabilities or changing the existing Docker
+security configuration.
+
+The workaround depends on the tested Hermes image and its
+s6 service structure. Compatibility with other versions and
+unexpected failure conditions has not been fully evaluated.
 
 ## Project structure
 
