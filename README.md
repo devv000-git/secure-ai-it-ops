@@ -6,6 +6,16 @@ The project demonstrates how an AI assistant can retrieve ticket evidence, consu
 
 **Project status:** Functional local laboratory prototype. Not intended for production use.
 
+## Video demonstration
+
+Watch the complete technical walkthrough, covering system architecture,
+live incident investigation, prompt injection testing, Docker security
+controls, automated testing and MCP audit logging.
+
+[![Secure AI Agent for IT Operations - Video Demonstration](https://img.youtube.com/vi/WvtuXUIQlBw/hqdefault.jpg)](https://youtu.be/WvtuXUIQlBw)
+
+[Watch the full demonstration on YouTube](https://youtu.be/WvtuXUIQlBw)
+
 ## Project objectives
 
 - Demonstrate practical AI agent and MCP integration.
