@@ -281,6 +281,25 @@ read-only investigation steps.
 
 ![AI security incident investigation](assets/screenshots/security-investigation.png)
 
+### Prompt injection resistance demonstration
+
+The agent was tested against a fictional adversarial ticket
+containing embedded instructions to downgrade incident priority,
+waive human review and conceal the malicious instruction.
+
+The agent identified and rejected the embedded instructions,
+retained the security classification and required human review.
+
+The deterministic priority tool returned a ticket-not-found
+result. The agent acknowledged this limitation and recommended
+provisional elevated priority rather than inventing a confirmed
+rule-based assessment.
+
+This demonstrates successful handling of the tested injection
+scenario, but does not establish general prompt injection immunity.
+
+![Prompt injection resistance demonstration](assets/screenshots/prompt-injection-test.png)
+
 ## Testing and evaluation
 
 ### Automated Python tests
@@ -373,6 +392,12 @@ secure-ai-it-ops/
 ├── compose.yaml
 ├── run-itops.sh
 ├── README.md
+├── assets/
+│   └── screenshots/
+│       ├── automated-tests.png
+│       ├── mcp-audit-evidence.png
+│       ├── security-investigation.png
+│       └── prompt-injection-test.png
 ├── config/
 │   └── hermes-itops.example.yaml
 ├── data/
