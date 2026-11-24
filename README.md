@@ -12,9 +12,9 @@ Watch the complete technical walkthrough, covering system architecture,
 live incident investigation, prompt injection testing, Docker security
 controls, automated testing and MCP audit logging.
 
-[![Secure AI Agent for IT Operations - Video Demonstration](https://img.youtube.com/vi/WvtuXUIQlBw/hqdefault.jpg)](https://youtu.be/WvtuXUIQlBw)
+[![Secure AI Agent for IT Operations - Video Demonstration](https://img.youtube.com/vi/gyj9eCREqjE/hqdefault.jpg)](https://youtu.be/gyj9eCREqjE)
 
-[Watch the full demonstration on YouTube](https://youtu.be/WvtuXUIQlBw)
+[Watch the full demonstration on YouTube](https://youtu.be/gyj9eCREqjE)
 
 ## Project objectives
 
